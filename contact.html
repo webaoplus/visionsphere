@@ -1,525 +1,427 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact VisionSphere - Book Your Leadership Transformation Consultation</title>
-    <meta name="description" content="Schedule a consultation, book corporate training events, or connect with VisionSphere. Multiple ways to begin your leadership transformation journey.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Contact VisionSphere - Book Your Leadership Transformation</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #2563EB; --primary-dark: #1E40AF; --primary-light: #3B82F6;
+            --bg-light: #F3F4F6; --text-dark: #111827; --text-gray: #4B5563;
+        }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        
+        /* Navigation */
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 1000; padding: 1rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+        .brand-vision { color: var(--primary); }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-link { color: var(--text-dark); text-decoration: none; font-weight: 500;
+            font-family: 'Montserrat', sans-serif; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white !important; padding: 0.625rem 1.5rem; border-radius: 0.5rem;
+            text-decoration: none; font-weight: 600; }
+        
+        /* Page Hero */
+        .page-hero { padding: calc(60px + 5rem) 2rem 3rem; text-align: center;
+            background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%); }
+        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .page-subtitle { font-size: 1.25rem; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
+        .section-label { display: inline-block; font-size: 0.875rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 4rem 2rem; }
+        
+        /* Contact Options */
+        .contact-options { background: var(--bg-light); }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .contact-option-card { background: white; padding: 2rem; border-radius: 1rem;
+            text-align: center; transition: all 0.3s; text-decoration: none;
+            color: var(--text-dark); border: 2px solid transparent; }
+        .contact-option-card:hover { border-color: var(--primary); transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .option-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .option-link { display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 600; }
+        
+        /* Contact Form */
+        .contact-section { padding: 4rem 2rem; }
+        .contact-section-alt { background: var(--bg-light); }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-icon { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .contact-form-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: start; }
+        .contact-form { display: flex; flex-direction: column; gap: 1.5rem;
+            background: white; padding: 2.5rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-family: 'Montserrat', sans-serif; font-weight: 600;
+            margin-bottom: 0.5rem; color: var(--text-dark); font-size: 0.9375rem; }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.875rem; border: 2px solid #E5E7EB; border-radius: 0.5rem;
+            font-family: 'Roboto', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--primary); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        
+        .contact-info { background: var(--bg-light); padding: 2rem; border-radius: 1rem; }
+        .contact-method { display: flex; gap: 1rem; align-items: start; margin-bottom: 2rem; }
+        .method-icon { font-size: 1.5rem; flex-shrink: 0; }
+        
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Montserrat', sans-serif;
+            font-size: 1rem; font-weight: 600; border-radius: 0.5rem; text-decoration: none;
+            transition: all 0.3s; border: none; cursor: pointer; width: 100%; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: #25D366; color: white; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999; transition: all 0.3s; text-decoration: none; font-size: 2rem; }
+        .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
+        
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white; text-align: center; padding: 4rem 2rem; }
+        .cta-section h2 { color: white; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem; }
+        
+        /* Footer */
+        .footer { background: var(--text-dark); color: white; padding: 3rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
+        .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .footer-col h4 { margin-bottom: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;
+            text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .contact-form-grid { grid-template-columns: 1fr; }
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <span class="brand-vision">Vision</span><span class="brand-sphere">Sphere</span>
-                </a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
                 <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
-                <li><a href="#booking" class="nav-cta">Book Consultation</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="contact.html" class="nav-cta">Book Consultation</a></li>
             </ul>
         </div>
     </nav>
 
-```
-<!-- Contact Hero -->
-<section class="page-hero contact-hero">
-    <div class="container">
-        <div class="page-hero-content fade-in">
-            <span class="section-label">Get in Touch</span>
-            <h1 class="page-title">Let's Start Your Transformation</h1>
-            <p class="page-subtitle">Choose the option that best fits your needs—from individual coaching to corporate programs, we're ready to help you lead with impact</p>
+    <!-- Hero -->
+    <section class="page-hero">
+        <span class="section-label">Get in Touch</span>
+        <h1 class="page-title">Let's Start Your Transformation</h1>
+        <p class="page-subtitle">Choose the option that best fits your needs—from individual coaching to corporate programs, we're ready to help you lead with impact</p>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="container">
+            <div class="contact-grid">
+                <a href="#coaching" class="contact-option-card">
+                    <div class="option-icon">👤</div>
+                    <h3>1-on-1 Coaching</h3>
+                    <p>Private coaching for executives and leaders</p>
+                    <span class="option-link">Learn More →</span>
+                </a>
+
+                <a href="#corporate" class="contact-option-card">
+                    <div class="option-icon">🏢</div>
+                    <h3>Corporate Events</h3>
+                    <p>Workshops, retreats, and team development</p>
+                    <span class="option-link">Learn More →</span>
+                </a>
+
+                <a href="#booking" class="contact-option-card">
+                    <div class="option-icon">📅</div>
+                    <h3>Book Consultation</h3>
+                    <p>Schedule a free 30-minute consultation</p>
+                    <span class="option-link">Schedule Now →</span>
+                </a>
+
+                <a href="#contact-form" class="contact-option-card">
+                    <div class="option-icon">✉️</div>
+                    <h3>Send Message</h3>
+                    <p>General inquiries and information</p>
+                    <span class="option-link">Contact Us →</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Options Grid -->
-<section class="contact-options">
-    <div class="container">
-        <div class="contact-grid">
-            <a href="#one-on-one" class="contact-option-card card-reveal">
-                <div class="option-icon">👤</div>
-                <h3>1-on-1 Consultancy</h3>
-                <p>Private coaching for executives and leaders</p>
-                <span class="option-link">Schedule Session →</span>
-            </a>
+    <!-- Executive Coaching Section -->
+    <section class="contact-section" id="coaching">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">👤</div>
+                <h2>Executive & Leadership Coaching</h2>
+                <p style="color: var(--text-gray); max-width: 700px; margin: 0 auto;">Personalized coaching for senior leaders, executives, and high-potential managers</p>
+            </div>
 
-            <a href="#corporate" class="contact-option-card card-reveal">
-                <div class="option-icon">🏢</div>
-                <h3>Corporate Events</h3>
-                <p>Workshops, retreats, and team development</p>
-                <span class="option-link">Plan Event →</span>
-            </a>
+            <div class="contact-form-grid">
+                <form class="contact-form" onsubmit="handleSubmit(event, 'coaching')">
+                    <h3 style="margin-bottom: 0.5rem;">Request Coaching Information</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9375rem; margin-bottom: 1rem;">We'll respond within 24 hours to schedule a discovery conversation.</p>
+                    
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" required>
+                    </div>
 
-            <a href="#booking" class="contact-option-card card-reveal">
-                <div class="option-icon">📅</div>
-                <h3>Book Appointment</h3>
-                <p>Quick consultation scheduling via Calendly</p>
-                <span class="option-link">View Calendar →</span>
-            </a>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" required>
+                    </div>
 
-            <a href="#contact-form" class="contact-option-card card-reveal">
-                <div class="option-icon">✉️</div>
-                <h3>Send Message</h3>
-                <p>General inquiries and information requests</p>
-                <span class="option-link">Contact Us →</span>
-            </a>
-        </div>
-    </div>
-</section>
+                    <div class="form-group">
+                        <label>Current Role/Title *</label>
+                        <input type="text" required>
+                    </div>
 
-<!-- 1-on-1 Consultancy Section -->
-<section class="contact-section" id="one-on-one">
-    <div class="container">
-        <div class="contact-section-header card-reveal">
-            <div class="section-icon">👤</div>
-            <h2>Executive & Leadership Coaching</h2>
-            <p>Personalized coaching for senior leaders, executives, and high-potential managers navigating complex challenges</p>
-        </div>
+                    <div class="form-group">
+                        <label>What are your primary coaching goals? *</label>
+                        <textarea required placeholder="Describe the challenges you're facing or capabilities you want to develop..."></textarea>
+                    </div>
 
-        <div class="service-detail-grid">
-            <div class="detail-content card-reveal">
-                <h3>What to Expect</h3>
-                <p>One-on-one coaching provides a confidential space to work through your unique leadership challenges with an experienced coach who understands both technical complexity and human dynamics.</p>
-                
-                <div class="coaching-benefits">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🎯</div>
-                        <div class="benefit-content">
+                    <button type="submit" class="btn btn-primary">Request Information</button>
+                </form>
+
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 1.5rem;">What to Expect</h3>
+                    <div class="contact-method">
+                        <div class="method-icon">⏱️</div>
+                        <div>
+                            <h4>30-Minute Discovery Call</h4>
+                            <p style="color: var(--text-gray); font-size: 0.9375rem;">Focused conversation about your goals</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="method-icon">🎯</div>
+                        <div>
                             <h4>Customized Focus</h4>
-                            <p>Sessions tailored to your specific goals, challenges, and organizational context</p>
+                            <p style="color: var(--text-gray); font-size: 0.9375rem;">Tailored to your challenges and context</p>
                         </div>
                     </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🔒</div>
-                        <div class="benefit-content">
-                            <h4>Complete Confidentiality</h4>
-                            <p>Safe space to explore challenges, test ideas, and develop strategies</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📊</div>
-                        <div class="benefit-content">
+                    <div class="contact-method">
+                        <div class="method-icon">📊</div>
+                        <div>
                             <h4>Measurable Progress</h4>
-                            <p>Structured frameworks with clear goals and accountability</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">⚡</div>
-                        <div class="benefit-content">
-                            <h4>Real-World Application</h4>
-                            <p>Immediate implementation of strategies in your actual work environment</p>
+                            <p style="color: var(--text-gray); font-size: 0.9375rem;">Clear goals and accountability</p>
                         </div>
                     </div>
                 </div>
-
-                <h3>Coaching Engagement Options</h3>
-                <div class="engagement-options">
-                    <div class="engagement-option">
-                        <h4>Discovery Session</h4>
-                        <p>Single 90-minute session to explore goals and determine fit</p>
-                        <div class="option-duration">Duration: 1.5 hours</div>
-                    </div>
-                    <div class="engagement-option">
-                        <h4>Short-Term Coaching</h4>
-                        <p>Focused engagement for specific challenge or transition</p>
-                        <div class="option-duration">Duration: 6 sessions over 3 months</div>
-                    </div>
-                    <div class="engagement-option">
-                        <h4>Comprehensive Program</h4>
-                        <p>Deep transformation engagement for sustained development</p>
-                        <div class="option-duration">Duration: 12+ sessions over 6-12 months</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="detail-form card-reveal">
-                <div class="form-header">
-                    <h3>Request Coaching Information</h3>
-                    <p>Share your background and coaching goals. We'll respond within 24 hours to schedule a discovery conversation.</p>
-                </div>
-                <form class="contact-form" id="coachingForm">
-                    <div class="form-group">
-                        <label for="coaching-name">Full Name *</label>
-                        <input type="text" id="coaching-name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="coaching-email">Email Address *</label>
-                        <input type="email" id="coaching-email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="coaching-phone">Phone Number</label>
-                        <input type="tel" id="coaching-phone" name="phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="coaching-role">Current Role/Title *</label>
-                        <input type="text" id="coaching-role" name="role" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="coaching-goals">What are your primary coaching goals? *</label>
-                        <textarea id="coaching-goals" name="goals" rows="4" required placeholder="Describe the challenges you're facing or the leadership capabilities you want to develop..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="coaching-timeline">Preferred Start Timeline</label>
-                        <select id="coaching-timeline" name="timeline">
-                            <option value="">Select timeline...</option>
-                            <option value="immediate">Within 2 weeks</option>
-                            <option value="month">Within 1 month</option>
-                            <option value="quarter">Within 3 months</option>
-                            <option value="exploring">Just exploring options</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full">Request Coaching Information</button>
-                </form>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Corporate Events Section -->
-<section class="contact-section section-alt" id="corporate">
-    <div class="container">
-        <div class="contact-section-header card-reveal">
-            <div class="section-icon">🏢</div>
-            <h2>Corporate Training & Events</h2>
-            <p>Team workshops, leadership retreats, and organizational development programs designed for your specific needs</p>
-        </div>
-
-        <div class="service-detail-grid">
-            <div class="detail-content card-reveal">
-                <h3>Corporate Program Options</h3>
-                <p>We design and deliver customized programs for organizations seeking to transform their leadership culture, improve team performance, or develop specific capabilities across their workforce.</p>
-
-                <div class="corporate-options">
-                    <div class="corporate-option">
-                        <h4>Half-Day Workshops</h4>
-                        <p>Focused skill-building sessions on specific leadership topics</p>
-                        <ul>
-                            <li>3-4 hours of interactive training</li>
-                            <li>Up to 30 participants</li>
-                            <li>Digital materials and resources</li>
-                            <li>Post-workshop implementation guide</li>
-                        </ul>
-                    </div>
-
-                    <div class="corporate-option">
-                        <h4>Full-Day Intensives</h4>
-                        <p>Comprehensive training combining multiple frameworks and skills</p>
-                        <ul>
-                            <li>6-8 hours of immersive learning</li>
-                            <li>Mixed formats: presentations, activities, discussions</li>
-                            <li>Individual and team assessments</li>
-                            <li>Follow-up resources and support</li>
-                        </ul>
-                    </div>
-
-                    <div class="corporate-option">
-                        <h4>Leadership Retreats</h4>
-                        <p>Multi-day offsite programs for strategic planning and team development</p>
-                        <ul>
-                            <li>2-3 day immersive experiences</li>
-                            <li>Strategic planning facilitation</li>
-                            <li>Team-building and collaboration activities</li>
-                            <li>Individual coaching sessions</li>
-                            <li>Action planning and commitments</li>
-                        </ul>
-                    </div>
-
-                    <div class="corporate-option">
-                        <h4>Organizational Transformation</h4>
-                        <p>Long-term engagements for culture change and system development</p>
-                        <ul>
-                            <li>3-12 month structured programs</li>
-                            <li>Leadership pipeline development</li>
-                            <li>Culture assessment and transformation</li>
-                            <li>Train-the-trainer components</li>
-                            <li>Measurement and continuous improvement</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3>Popular Workshop Topics</h3>
-                <div class="workshop-topics">
-                    <span class="topic-tag">IT Leadership Transition</span>
-                    <span class="topic-tag">Emotional Intelligence</span>
-                    <span class="topic-tag">Radical Transparency</span>
-                    <span class="topic-tag">Lean Leadership</span>
-                    <span class="topic-tag">Agile Team Development</span>
-                    <span class="topic-tag">Feedback Culture</span>
-                    <span class="topic-tag">Strategic Thinking</span>
-                    <span class="topic-tag">Change Management</span>
-                </div>
+    <!-- Corporate Events Section -->
+    <section class="contact-section contact-section-alt" id="corporate">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">🏢</div>
+                <h2>Corporate Training & Events</h2>
+                <p style="color: var(--text-gray); max-width: 700px; margin: 0 auto;">Team workshops, leadership retreats, and organizational development programs</p>
             </div>
 
-            <div class="detail-form card-reveal">
-                <div class="form-header">
-                    <h3>Plan Your Corporate Event</h3>
-                    <p>Tell us about your team and objectives. We'll create a customized proposal for your consideration.</p>
-                </div>
-                <form class="contact-form" id="corporateForm">
+            <div class="contact-form-grid">
+                <form class="contact-form" onsubmit="handleSubmit(event, 'corporate')">
+                    <h3 style="margin-bottom: 0.5rem;">Plan Your Corporate Event</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9375rem; margin-bottom: 1rem;">We'll create a customized proposal for your team.</p>
+                    
                     <div class="form-group">
-                        <label for="corp-name">Contact Name *</label>
-                        <input type="text" id="corp-name" name="name" required>
+                        <label>Contact Name *</label>
+                        <input type="text" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="corp-email">Email Address *</label>
-                        <input type="email" id="corp-email" name="email" required>
+                        <label>Email Address *</label>
+                        <input type="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="corp-company">Company Name *</label>
-                        <input type="text" id="corp-company" name="company" required>
+                        <label>Company Name *</label>
+                        <input type="text" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="corp-size">Approximate Team/Group Size *</label>
-                        <select id="corp-size" name="size" required>
+                        <label>Team/Group Size *</label>
+                        <select required>
                             <option value="">Select size...</option>
-                            <option value="10-20">10-20 people</option>
-                            <option value="20-50">20-50 people</option>
-                            <option value="50-100">50-100 people</option>
-                            <option value="100+">100+ people</option>
+                            <option>10-20 people</option>
+                            <option>20-50 people</option>
+                            <option>50-100 people</option>
+                            <option>100+ people</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="corp-type">Event Type *</label>
-                        <select id="corp-type" name="type" required>
-                            <option value="">Select type...</option>
-                            <option value="half-day">Half-Day Workshop</option>
-                            <option value="full-day">Full-Day Intensive</option>
-                            <option value="retreat">Multi-Day Retreat</option>
-                            <option value="program">Long-Term Program</option>
-                            <option value="unsure">Not Sure Yet</option>
-                        </select>
+                        <label>Training Objectives & Challenges *</label>
+                        <textarea required placeholder="What specific outcomes are you hoping to achieve?"></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="corp-objectives">Training Objectives & Challenges *</label>
-                        <textarea id="corp-objectives" name="objectives" rows="4" required placeholder="What specific outcomes are you hoping to achieve? What challenges is your team facing?"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="corp-timeline">Preferred Timeline</label>
-                        <input type="text" id="corp-timeline" name="timeline" placeholder="e.g., Q2 2025, June-August, Flexible">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full">Request Proposal</button>
+                    <button type="submit" class="btn btn-primary">Request Proposal</button>
                 </form>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Calendly Booking Section -->
-<section class="contact-section" id="booking">
-    <div class="container">
-        <div class="contact-section-header card-reveal">
-            <div class="section-icon">📅</div>
-            <h2>Book Your Consultation</h2>
-            <p>Schedule a free 30-minute consultation to discuss your leadership development needs</p>
-        </div>
-
-        <div class="calendly-container card-reveal">
-            <div class="calendly-info">
-                <h3>What to Expect in Your Consultation</h3>
-                <div class="consultation-details">
-                    <div class="detail-item">
-                        <div class="detail-icon">⏱️</div>
-                        <div class="detail-text">
-                            <h4>30-Minute Call</h4>
-                            <p>Focused conversation about your goals and challenges</p>
-                        </div>
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 1.5rem;">Program Options</h3>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <h4>Half-Day Workshops</h4>
+                        <p style="color: var(--text-gray); font-size: 0.9375rem;">3-4 hours focused training</p>
                     </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">🎯</div>
-                        <div class="detail-text">
-                            <h4>Needs Assessment</h4>
-                            <p>We'll discuss your specific situation and objectives</p>
-                        </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <h4>Full-Day Intensives</h4>
+                        <p style="color: var(--text-gray); font-size: 0.9375rem;">6-8 hours comprehensive learning</p>
                     </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">💡</div>
-                        <div class="detail-text">
-                            <h4>Initial Recommendations</h4>
-                            <p>Suggestions for programs that match your needs</p>
-                        </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; margin-bottom: 1rem;">
+                        <h4>Leadership Retreats</h4>
+                        <p style="color: var(--text-gray); font-size: 0.9375rem;">2-3 day immersive experiences</p>
                     </div>
-                    <div class="detail-item">
-                        <div class="detail-icon">📋</div>
-                        <div class="detail-text">
-                            <h4>Next Steps</h4>
-                            <p>Clear path forward if you decide to proceed</p>
-                        </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4>Long-Term Programs</h4>
+                        <p style="color: var(--text-gray); font-size: 0.9375rem;">3-12 month transformations</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Calendly Embed Placeholder -->
-            <div class="calendly-embed">
-                <div class="calendly-placeholder">
-                    <div class="placeholder-icon">📅</div>
-                    <h3>Calendly Integration</h3>
-                    <p>Add your Calendly embed code here to enable direct scheduling</p>
-                    <div class="placeholder-code">
-                        <code>
-                            &lt;!-- Calendly inline widget begin --&gt;<br>
-                            &lt;div class="calendly-inline-widget" <br>
-                            data-url="YOUR_CALENDLY_URL"<br>
-                            style="min-width:320px;height:700px;"&gt;&lt;/div&gt;<br>
-                            &lt;script type="text/javascript" <br>
-                            src="https://assets.calendly.com/assets/external/widget.js"&gt;<br>
-                            &lt;/script&gt;<br>
-                            &lt;!-- Calendly inline widget end --&gt;
-                        </code>
-                    </div>
-                    <p class="placeholder-note"><strong>Instructions:</strong> Replace this section with your actual Calendly embed code. Create your scheduling link at <a href="https://calendly.com" target="_blank">calendly.com</a></p>
+    <!-- Booking Section -->
+    <section class="contact-section" id="booking">
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <div class="section-header">
+                <div class="section-icon">📅</div>
+                <h2>Book Your Free Consultation</h2>
+                <p style="color: var(--text-gray);">Schedule a 30-minute call to discuss your leadership development needs</p>
+            </div>
+
+            <div style="background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
+                <h3 style="margin-bottom: 1rem;">Calendly Integration</h3>
+                <p style="color: var(--text-gray); margin-bottom: 2rem;">Add your Calendly scheduling link here to enable direct booking.</p>
+                <div style="background: var(--bg-light); padding: 2rem; border-radius: 0.75rem; margin-bottom: 2rem; text-align: left;">
+                    <code style="font-family: 'Courier New', monospace; font-size: 0.875rem; display: block; line-height: 1.6;">
+                        &lt;div class="calendly-inline-widget"<br>
+                        &nbsp;&nbsp;data-url="YOUR_CALENDLY_URL"<br>
+                        &nbsp;&nbsp;style="min-width:320px;height:700px;"&gt;<br>
+                        &lt;/div&gt;<br>
+                        &lt;script src="https://assets.calendly.com/assets/external/widget.js"&gt;&lt;/script&gt;
+                    </code>
                 </div>
+                <p style="color: var(--text-gray); font-size: 0.9375rem;">
+                    <strong>Instructions:</strong> Create your scheduling link at <a href="https://calendly.com" target="_blank" style="color: var(--primary);">calendly.com</a> and replace this placeholder with your embed code.
+                </p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Form Section -->
-<section class="contact-section section-alt" id="contact-form">
-    <div class="container">
-        <div class="contact-section-header card-reveal">
-            <div class="section-icon">✉️</div>
-            <h2>Send Us a Message</h2>
-            <p>Have questions or need more information? Reach out and we'll respond within 24 hours</p>
-        </div>
+    <!-- General Contact Form -->
+    <section class="contact-section contact-section-alt" id="contact-form">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">✉️</div>
+                <h2>Send Us a Message</h2>
+                <p style="color: var(--text-gray); max-width: 700px; margin: 0 auto;">Have questions? We'll respond within 24 hours</p>
+            </div>
 
-        <div class="general-contact-grid">
-            <div class="contact-info card-reveal">
-                <h3>Get in Touch</h3>
-                <p>Whether you have questions about our services, want to discuss a custom program, or simply want to learn more about VisionSphere, we're here to help.</p>
+            <div class="contact-form-grid">
+                <form class="contact-form" onsubmit="handleSubmit(event, 'general')">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" required>
+                    </div>
 
-                <div class="contact-methods">
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" required placeholder="How can we help?">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea required rows="6" placeholder="Tell us about your needs or questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p style="font-size: 0.75rem; color: var(--text-gray); text-align: center; margin-top: 0.5rem;">We respect your privacy. Your information will never be shared.</p>
+                </form>
+
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 1.5rem;">Get in Touch</h3>
                     <div class="contact-method">
                         <div class="method-icon">📧</div>
-                        <div class="method-content">
+                        <div>
                             <h4>Email</h4>
-                            <a href="mailto:info@visionsphere.com">info@visionsphere.com</a>
-                            <p class="method-note">We typically respond within 24 hours</p>
+                            <a href="mailto:info@visionsphere.com" style="color: var(--primary); text-decoration: none;">info@visionsphere.com</a>
+                            <p style="color: var(--text-gray); font-size: 0.875rem; margin-top: 0.25rem;">We typically respond within 24 hours</p>
                         </div>
                     </div>
 
                     <div class="contact-method">
                         <div class="method-icon">💬</div>
-                        <div class="method-content">
+                        <div>
                             <h4>WhatsApp</h4>
-                            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-link" target="_blank">
-                                <span class="whatsapp-icon">📱</span>
-                                Message on WhatsApp
+                            <a href="https://wa.me/YOUR_PHONE_NUMBER" style="color: #25D366; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                                <span>Message on WhatsApp</span>
                             </a>
-                            <p class="method-note">Quick responses during business hours</p>
+                            <p style="color: var(--text-gray); font-size: 0.875rem; margin-top: 0.25rem;">Quick responses during business hours</p>
                         </div>
                     </div>
 
                     <div class="contact-method">
                         <div class="method-icon">🌐</div>
-                        <div class="method-content">
+                        <div>
                             <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
-                            <p>Weekend: By appointment only</p>
+                            <p style="color: var(--text-gray); font-size: 0.9375rem;">Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                            <p style="color: var(--text-gray); font-size: 0.9375rem;">Weekend: By appointment</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="response-commitment">
-                    <h4>Our Commitment</h4>
-                    <p>We value your time and interest. Every inquiry receives a thoughtful, personal response—never an automated reply. We'll work with you to find the best solution for your leadership development needs.</p>
-                </div>
-            </div>
-
-            <div class="general-form card-reveal">
-                <form class="contact-form" id="generalForm">
-                    <div class="form-group">
-                        <label for="gen-name">Name *</label>
-                        <input type="text" id="gen-name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gen-email">Email *</label>
-                        <input type="email" id="gen-email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gen-subject">Subject *</label>
-                        <input type="text" id="gen-subject" name="subject" required placeholder="How can we help?">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gen-message">Message *</label>
-                        <textarea id="gen-message" name="message" rows="6" required placeholder="Tell us about your needs, questions, or how we can support your leadership journey..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gen-interest">Area of Interest</label>
-                        <select id="gen-interest" name="interest">
-                            <option value="">Select if applicable...</option>
-                            <option value="it-leadership">IT Leadership Development</option>
-                            <option value="eq-training">Emotional Intelligence Training</option>
-                            <option value="lean-leadership">Lean Leadership Systems</option>
-                            <option value="radical-transparency">Radical Transparency Framework</option>
-                            <option value="executive-coaching">Executive Coaching</option>
-                            <option value="corporate-programs">Corporate Programs</option>
-                            <option value="other">Other Services</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    <p class="form-privacy">We respect your privacy. Your information will never be shared.</p>
-                </form>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20VisionSphere%2C%20I'm%20interested%20in%20learning%20more%20about%20your%20leadership%20programs" 
-   class="whatsapp-float" 
-   target="_blank" 
-   aria-label="Contact us on WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor">
-        <path d="M27.281 4.65C24.389 1.789 20.653 0.25 16.696 0.25C8.534 0.25 1.896 6.888 1.896 15.05C1.896 17.639 2.586 20.165 3.898 22.389L1.75 30.25L9.834 28.136C11.977 29.334 14.396 29.966 16.856 29.966H16.863C25.025 29.966 31.75 23.328 31.75 15.166C31.75 11.209 30.173 7.511 27.281 4.65ZM16.696 27.528C14.534 27.528 12.416 26.947 10.586 25.853L10.149 25.603L5.319 26.785L6.525 22.055L6.244 21.593C5.019 19.666 4.364 17.405 4.364 15.05C4.364 8.271 9.917 2.718 16.703 2.718C20.006 2.718 23.111 3.974 25.455 6.324C27.798 8.674 29.283 11.779 29.283 15.166C29.283 21.945 23.475 27.528 16.696 27.528Z"/>
-        <path d="M23.111 18.174C22.738 17.988 20.953 17.11 20.618 16.986C20.283 16.862 20.042 16.8 19.801 17.186C19.56 17.572 18.886 18.374 18.675 18.615C18.464 18.856 18.253 18.887 17.88 18.701C17.507 18.515 16.295 18.113 14.865 16.838C13.747 15.843 12.998 14.612 12.787 14.226C12.576 13.84 12.763 13.646 12.942 13.46C13.107 13.295 13.315 13.026 13.501 12.815C13.687 12.604 13.749 12.455 13.873 12.214C13.997 11.973 13.935 11.762 13.842 11.576C13.749 11.39 12.998 9.605 12.695 8.833C12.392 8.061 12.089 8.185 11.878 8.154C11.667 8.123 11.426 8.123 11.185 8.123C10.944 8.123 10.54 8.216 10.205 8.602C9.87 8.988 8.93 9.866 8.93 11.651C8.93 13.436 10.236 15.16 10.422 15.401C10.608 15.642 12.998 19.334 16.648 20.894C20.298 22.454 20.298 21.914 21.039 21.852C21.78 21.79 23.256 21.007 23.559 20.162C23.862 19.317 23.862 18.625 23.769 18.439C23.676 18.253 23.484 18.36 23.111 18.174Z"/>
-    </svg>
-</a>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20VisionSphere%2C%20I'm%20interested%20in%20learning%20more" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Contact us on WhatsApp">
+        💬
+    </a>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-brand">
-                    <span class="brand-vision">Vision</span><span class="brand-sphere">Sphere</span>
-                </div>
-                <p class="footer-tagline">Think Deeper. Rise Higher. Lead the Future.</p>
-                <p class="footer-description">The North Star of Leadership - Bridging technical mastery with leadership excellence.</p>
+                <div class="footer-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Think Deeper. Rise Higher. Lead the Future.</p>
             </div>
-
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
@@ -529,37 +431,49 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul class="footer-links">
-                    <li><a href="services.html#it-leadership">IT Leadership</a></li>
-                    <li><a href="services.html#eq-training">Emotional Intelligence</a></li>
-                    <li><a href="services.html#lean-leadership">Lean Leadership</a></li>
-                    <li><a href="services.html#radical-transparency">Radical Transparency</a></li>
+                    <li><a href="services.html">IT Leadership</a></li>
+                    <li><a href="services.html">Emotional Intelligence</a></li>
+                    <li><a href="services.html">Lean Leadership</a></li>
+                    <li><a href="services.html">Radical Transparency</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <ul class="footer-contact">
-                    <li><a href="#one-on-one">1-on-1 Coaching</a></li>
-                    <li><a href="#corporate">Corporate Events</a></li>
-                    <li><a href="#booking">Book Consultation</a></li>
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Book Consultation</a></li>
                     <li><a href="mailto:info@visionsphere.com">info@visionsphere.com</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2025 VisionSphere. All rights reserved.</p>
-            <p class="footer-philosophy">Leadership is a <strong>behavior</strong>, not a title.</p>
+            <p>Leadership is a <strong>behavior</strong>, not a title.</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script src="script.js"></script>
-```
-
+    <script>
+        // Simple form handling - no external dependencies
+        function handleSubmit(event, formType) {
+            event.preventDefault();
+            const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            // Simulate submission (replace with actual backend)
+            setTimeout(() => {
+                alert('Thank you! We will respond within 24 hours.');
+                form.reset();
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
