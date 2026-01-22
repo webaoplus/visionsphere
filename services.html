@@ -1,496 +1,359 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leadership Training Services | VisionSphere - Transform Your Technical Teams</title>
-    <meta name="description" content="IT Leadership Development, Emotional Intelligence Training, Lean Leadership, and Radical Transparency programs. Specialized services for technology organizations seeking high-performance cultures.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Leadership Training Services | VisionSphere</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #2563EB; --primary-dark: #1E40AF; --primary-light: #3B82F6;
+            --bg-light: #F3F4F6; --text-dark: #111827; --text-gray: #4B5563;
+        }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        
+        /* Navigation */
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 1000; padding: 1rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+        .brand-vision { color: var(--primary); }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-link { color: var(--text-dark); text-decoration: none; font-weight: 500;
+            font-family: 'Montserrat', sans-serif; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white !important; padding: 0.625rem 1.5rem; border-radius: 0.5rem;
+            text-decoration: none; font-weight: 600; }
+        
+        /* Page Hero */
+        .page-hero { padding: calc(60px + 5rem) 2rem 3rem; text-align: center;
+            background: linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%); }
+        .page-title { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+        .page-subtitle { font-size: 1.25rem; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
+        .section-label { display: inline-block; font-size: 0.875rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 4rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+        
+        /* Service Tiers */
+        .service-tiers { background: var(--bg-light); }
+        .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .tier-card { background: white; padding: 2rem; border-radius: 1rem; border: 2px solid #E5E7EB; }
+        .tier-featured { border-color: var(--primary); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2); }
+        .tier-icon { font-size: 3rem; text-align: center; margin-bottom: 1rem; }
+        .tier-badge { background: var(--primary); color: white; padding: 0.25rem 1rem;
+            border-radius: 50px; font-size: 0.75rem; margin-bottom: 1rem; display: inline-block; }
+        .tier-features { margin-top: 1.5rem; }
+        .tier-feature { padding: 0.5rem 0; border-bottom: 1px solid #E5E7EB; color: var(--text-gray); }
+        
+        /* Service Detail */
+        .service-detail { padding: 4rem 2rem; }
+        .service-detail-alt { background: var(--bg-light); }
+        .service-detail-header { text-align: center; margin-bottom: 3rem; }
+        .service-detail-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .service-detail-tagline { font-size: 1.25rem; color: var(--text-gray); font-style: italic; }
+        
+        .program-card { background: white; padding: 2rem; border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-left: 4px solid var(--primary);
+            margin-bottom: 2rem; }
+        .program-card h3 { margin-bottom: 1rem; }
+        .program-card p { color: var(--text-gray); margin-bottom: 1rem; }
+        .program-outcomes ul { list-style-position: outside; padding-left: 1.5rem; margin-top: 1rem; }
+        .program-outcomes li { color: var(--text-gray); margin-bottom: 0.5rem; }
+        .program-duration { margin-top: 1rem; padding: 0.5rem 1rem; background: var(--bg-light);
+            border-radius: 0.375rem; font-size: 0.875rem; color: var(--text-gray); }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Montserrat', sans-serif;
+            font-size: 1rem; font-weight: 600; border-radius: 0.5rem; text-decoration: none;
+            transition: all 0.3s; margin: 0.5rem; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white; text-align: center; padding: 4rem 2rem; }
+        .cta-section h2 { color: white; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem; }
+        
+        /* Footer */
+        .footer { background: var(--text-dark); color: white; padding: 3rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
+        .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .footer-col h4 { margin-bottom: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;
+            text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; }
+        
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="container nav-container">
-            <div class="nav-brand">
-                <a href="index.html">
-                    <span class="brand-vision">Vision</span><span class="brand-sphere">Sphere</span>
-                </a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li><a href="contact.html#booking" class="nav-cta">Book Consultation</a></li>
+                <li><a href="contact.html" class="nav-cta">Book Consultation</a></li>
             </ul>
         </div>
     </nav>
 
-```
-<!-- Services Hero -->
-<section class="page-hero services-hero">
-    <div class="container">
-        <div class="page-hero-content fade-in">
-            <span class="section-label">Our Services</span>
-            <h1 class="page-title">Transformational Leadership Programs</h1>
-            <p class="page-subtitle">Specialized training that bridges technical excellence with human-centric leadership—designed for technology organizations ready to move from survival mode to high performance</p>
-        </div>
-    </div>
-</section>
+    <!-- Hero -->
+    <section class="page-hero">
+        <span class="section-label">Our Services</span>
+        <h1 class="page-title">Transformational Leadership Programs</h1>
+        <p class="page-subtitle">Specialized training that bridges technical excellence with human-centric leadership—designed for technology organizations ready to move from survival mode to high performance</p>
+    </section>
 
-<!-- Service Tiers Overview -->
-<section class="service-tiers">
-    <div class="container">
-        <div class="section-header text-center card-reveal">
-            <h2>Choose Your Transformation Path</h2>
-            <p>Programs designed for every stage of leadership development</p>
-        </div>
-        <div class="tiers-grid">
-            <div class="tier-card card-reveal">
-                <div class="tier-icon">🌱</div>
-                <h3>Foundation</h3>
-                <p class="tier-subtitle">Essentials for Emerging Leaders</p>
-                <p>Core leadership fundamentals for new managers and individual contributors stepping into leadership roles.</p>
-                <div class="tier-features">
-                    <div class="tier-feature">✓ 2-day intensive workshops</div>
-                    <div class="tier-feature">✓ Group coaching sessions</div>
-                    <div class="tier-feature">✓ Leadership assessment</div>
-                    <div class="tier-feature">✓ Digital resources</div>
-                </div>
+    <!-- Service Tiers -->
+    <section class="service-tiers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Transformation Path</h2>
+                <p style="color: var(--text-gray);">Programs designed for every stage of leadership development</p>
             </div>
-
-            <div class="tier-card tier-featured card-reveal">
-                <div class="tier-badge">Most Popular</div>
-                <div class="tier-icon">⚡</div>
-                <h3>Accelerator</h3>
-                <p class="tier-subtitle">Advanced for Middle Managers</p>
-                <p>Strategic leadership development for managers ready to drive organizational transformation.</p>
-                <div class="tier-features">
-                    <div class="tier-feature">✓ 8-12 week blended program</div>
-                    <div class="tier-feature">✓ Individual coaching (6 sessions)</div>
-                    <div class="tier-feature">✓ 360-degree feedback</div>
-                    <div class="tier-feature">✓ Team development workshop</div>
-                    <div class="tier-feature">✓ Implementation support</div>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-icon">🌱</div>
+                    <h3>Foundation</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-gray); margin-bottom: 1rem;">Essentials for Emerging Leaders</p>
+                    <p>Core leadership fundamentals for new managers and individual contributors stepping into leadership roles.</p>
+                    <div class="tier-features">
+                        <div class="tier-feature">✓ 2-day intensive workshops</div>
+                        <div class="tier-feature">✓ Group coaching sessions</div>
+                        <div class="tier-feature">✓ Leadership assessment</div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="tier-card card-reveal">
-                <div class="tier-icon">👑</div>
-                <h3>Executive</h3>
-                <p class="tier-subtitle">Elite for Senior Leadership</p>
-                <p>Comprehensive transformation programs for C-suite and senior leaders driving culture change.</p>
-                <div class="tier-features">
-                    <div class="tier-feature">✓ Customized engagement</div>
-                    <div class="tier-feature">✓ Executive coaching (12+ sessions)</div>
-                    <div class="tier-feature">✓ Organizational diagnosis</div>
-                    <div class="tier-feature">✓ Culture transformation roadmap</div>
-                    <div class="tier-feature">✓ Leadership pipeline development</div>
+                <div class="tier-card tier-featured">
+                    <span class="tier-badge">Most Popular</span>
+                    <div class="tier-icon">⚡</div>
+                    <h3>Accelerator</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-gray); margin-bottom: 1rem;">Advanced for Middle Managers</p>
+                    <p>Strategic leadership development for managers ready to drive organizational transformation.</p>
+                    <div class="tier-features">
+                        <div class="tier-feature">✓ 8-12 week blended program</div>
+                        <div class="tier-feature">✓ Individual coaching (6 sessions)</div>
+                        <div class="tier-feature">✓ 360-degree feedback</div>
+                        <div class="tier-feature">✓ Team development workshop</div>
+                    </div>
+                </div>
+
+                <div class="tier-card">
+                    <div class="tier-icon">👑</div>
+                    <h3>Executive</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-gray); margin-bottom: 1rem;">Elite for Senior Leadership</p>
+                    <p>Comprehensive transformation programs for C-suite and senior leaders driving culture change.</p>
+                    <div class="tier-features">
+                        <div class="tier-feature">✓ Customized engagement</div>
+                        <div class="tier-feature">✓ Executive coaching (12+ sessions)</div>
+                        <div class="tier-feature">✓ Culture transformation roadmap</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- IT Leadership Development -->
-<section class="service-detail" id="it-leadership">
-    <div class="container">
-        <div class="service-detail-header card-reveal">
-            <div class="service-detail-icon">💼</div>
-            <h2>IT Leadership Development</h2>
-            <p class="service-detail-tagline">Where Technical Excellence Meets Leadership Impact</p>
-        </div>
-
-        <div class="service-detail-content">
-            <div class="service-intro card-reveal">
-                <p>Most technical professionals hit a leadership ceiling not because they lack skills, but because they haven't learned to translate technical mastery into human leadership. Our IT Leadership Development programs are specifically designed for engineers, technical managers, and technology leaders who need to inspire teams, not just manage tasks.</p>
+    <!-- IT Leadership -->
+    <section class="service-detail" id="it-leadership">
+        <div class="container">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">💼</div>
+                <h2>IT Leadership Development</h2>
+                <p class="service-detail-tagline">Where Technical Excellence Meets Leadership Impact</p>
             </div>
 
-            <div class="service-programs">
-                <div class="program-card card-reveal">
-                    <h3>Technical-to-Executive Transition Coaching</h3>
-                    <p>Individualized coaching for engineers and technical managers developing strategic leadership capabilities. Learn to shift from tactical execution to strategic thinking, from individual contribution to team empowerment.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Strategic thinking frameworks for technical leaders</li>
-                            <li>Stakeholder management and executive presence</li>
-                            <li>Team delegation and leadership communication</li>
-                            <li>Balancing technical depth with leadership breadth</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 12-week program with bi-weekly coaching sessions</div>
-                </div>
+            <p style="max-width: 800px; margin: 0 auto 3rem; text-align: center; color: var(--text-gray);">
+                Most technical professionals hit a leadership ceiling not because they lack skills, but because they haven't learned to translate technical mastery into human leadership.
+            </p>
 
-                <div class="program-card card-reveal">
-                    <h3>Agile Team Development</h3>
-                    <p>Build high-performing agile teams that deliver results through effective collaboration, continuous improvement, and adaptive planning. Combines Scrum Master expertise with team dynamics facilitation.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Effective sprint planning and retrospectives</li>
-                            <li>Team collaboration and conflict resolution</li>
-                            <li>Agile mindset and adaptive leadership</li>
-                            <li>Metrics-driven continuous improvement</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 2-day workshop + 8-week implementation support</div>
+            <div class="program-card">
+                <h3>Technical-to-Executive Transition Coaching</h3>
+                <p>Individualized coaching for engineers and technical managers developing strategic leadership capabilities. Learn to shift from tactical execution to strategic thinking.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Strategic thinking frameworks for technical leaders</li>
+                        <li>Stakeholder management and executive presence</li>
+                        <li>Team delegation and leadership communication</li>
+                    </ul>
                 </div>
-
-                <div class="program-card card-reveal">
-                    <h3>DevOps Culture Transformation</h3>
-                    <p>Leverage ITIL 4 and CSM expertise to build collaborative DevOps cultures that break down silos and accelerate delivery. Focus on cultural change, not just tools and processes.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Breaking down development and operations silos</li>
-                            <li>Continuous integration and deployment mindsets</li>
-                            <li>Blameless post-mortems and learning cultures</li>
-                            <li>Service reliability and operational excellence</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 90-day transformation program</div>
-                </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Engineering Manager Coaching</h3>
-                    <p>Support for individual contributors transitioning to management roles. Navigate the challenging shift from being the best engineer to building the best engineering team.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>First-time manager transition frameworks</li>
-                            <li>1-on-1 meeting effectiveness and career conversations</li>
-                            <li>Performance management and difficult conversations</li>
-                            <li>Technical mentoring without micromanagement</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 6-month coaching engagement</div>
-                </div>
+                <div class="program-duration">Duration: 12-week program with bi-weekly coaching sessions</div>
             </div>
 
-            <div class="service-cta card-reveal">
-                <a href="contact.html#booking" class="btn btn-primary">Discuss IT Leadership Programs</a>
+            <div class="program-card">
+                <h3>Agile Team Development</h3>
+                <p>Build high-performing agile teams that deliver results through effective collaboration, continuous improvement, and adaptive planning.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Effective sprint planning and retrospectives</li>
+                        <li>Team collaboration and conflict resolution</li>
+                        <li>Agile mindset and adaptive leadership</li>
+                    </ul>
+                </div>
+                <div class="program-duration">Duration: 2-day workshop + 8-week implementation support</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contact.html" class="btn btn-primary">Discuss IT Leadership Programs</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Emotional Intelligence Training -->
-<section class="service-detail service-detail-alt" id="eq-training">
-    <div class="container">
-        <div class="service-detail-header card-reveal">
-            <div class="service-detail-icon">🧠</div>
-            <h2>Emotional Intelligence Training</h2>
-            <p class="service-detail-tagline">Technical Skills Get You Hired. EQ Determines How Far You Lead.</p>
-        </div>
-
-        <div class="service-detail-content">
-            <div class="service-intro card-reveal">
-                <p>The most successful technical leaders aren't just the smartest—they're the most emotionally intelligent. Our EQ training programs help technical professionals develop the self-awareness, empathy, and relationship management skills that transform individual contributors into inspirational leaders.</p>
+    <!-- Emotional Intelligence -->
+    <section class="service-detail service-detail-alt" id="eq-training">
+        <div class="container">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">🧠</div>
+                <h2>Emotional Intelligence Training</h2>
+                <p class="service-detail-tagline">Technical Skills Get You Hired. EQ Determines How Far You Lead.</p>
             </div>
 
-            <div class="service-programs">
-                <div class="program-card card-reveal">
-                    <h3>EQ Assessment & Development</h3>
-                    <p>Comprehensive emotional intelligence assessment using validated EQ frameworks, followed by personalized development planning and coaching to strengthen your EQ competencies.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Complete EQ profile with strengths and development areas</li>
-                            <li>Self-awareness and emotional regulation strategies</li>
-                            <li>Social awareness and empathy development</li>
-                            <li>Relationship management and influence skills</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: Assessment + 6 coaching sessions over 3 months</div>
+            <div class="program-card">
+                <h3>EQ Assessment & Development</h3>
+                <p>Comprehensive emotional intelligence assessment using validated EQ frameworks, followed by personalized development planning and coaching.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Complete EQ profile with strengths and development areas</li>
+                        <li>Self-awareness and emotional regulation strategies</li>
+                        <li>Relationship management and influence skills</li>
+                    </ul>
                 </div>
-
-                <div class="program-card card-reveal">
-                    <h3>EQ for Engineering Leaders</h3>
-                    <p>Specialized program applying emotional intelligence specifically to technical leadership contexts. Learn to balance analytical thinking with emotional awareness in engineering environments.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Reading team dynamics in technical environments</li>
-                            <li>Delivering technical feedback with empathy</li>
-                            <li>Managing stress and burnout in high-pressure projects</li>
-                            <li>Building psychological safety in engineering teams</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: Full-day workshop + 4 follow-up sessions</div>
-                </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Team Emotional Intelligence Workshop</h3>
-                    <p>Group training focused on developing collective EQ capabilities within technical teams. Build teams that collaborate effectively, manage conflict constructively, and support each other's growth.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Team EQ assessment and baseline</li>
-                            <li>Communication patterns and improvement strategies</li>
-                            <li>Constructive conflict management</li>
-                            <li>Building trust and psychological safety</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 2-day intensive workshop</div>
-                </div>
+                <div class="program-duration">Duration: Assessment + 6 coaching sessions over 3 months</div>
             </div>
 
-            <div class="service-cta card-reveal">
-                <a href="contact.html#booking" class="btn btn-primary">Explore EQ Training</a>
+            <div class="program-card">
+                <h3>EQ for Engineering Leaders</h3>
+                <p>Specialized program applying emotional intelligence specifically to technical leadership contexts. Learn to balance analytical thinking with emotional awareness.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Reading team dynamics in technical environments</li>
+                        <li>Delivering technical feedback with empathy</li>
+                        <li>Building psychological safety in engineering teams</li>
+                    </ul>
+                </div>
+                <div class="program-duration">Duration: Full-day workshop + 4 follow-up sessions</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contact.html" class="btn btn-primary">Explore EQ Training</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Lean Leadership -->
-<section class="service-detail" id="lean-leadership">
-    <div class="container">
-        <div class="service-detail-header card-reveal">
-            <div class="service-detail-icon">⚡</div>
-            <h2>Lean Leadership Systems</h2>
-            <p class="service-detail-tagline">Eliminate Waste. Optimize Human Systems. Create Sustainable Excellence.</p>
-        </div>
-
-        <div class="service-detail-content">
-            <div class="service-intro card-reveal">
-                <p>Lean principles revolutionized manufacturing—now apply them to leadership development. Our Lean Leadership programs help you eliminate waste in human systems, create continuous improvement cultures, and develop leadership processes that scale sustainably.</p>
+    <!-- Lean Leadership -->
+    <section class="service-detail" id="lean-leadership">
+        <div class="container">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">⚡</div>
+                <h2>Lean Leadership Systems</h2>
+                <p class="service-detail-tagline">Eliminate Waste. Optimize Human Systems. Create Sustainable Excellence.</p>
             </div>
 
-            <div class="service-programs">
-                <div class="program-card card-reveal">
-                    <h3>Lean Leadership Fundamentals</h3>
-                    <p>Master the core concepts of Lean thinking applied to leadership and organizational development. Learn to see waste in communication, decision-making, and people systems.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Eight types of waste in leadership systems</li>
-                            <li>Value stream mapping for organizational processes</li>
-                            <li>Standard work for leaders and managers</li>
-                            <li>Continuous improvement mindsets (Kaizen)</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 3-day workshop</div>
+            <div class="program-card">
+                <h3>Lean Leadership Fundamentals</h3>
+                <p>Master the core concepts of Lean thinking applied to leadership and organizational development. Learn to see waste in communication, decision-making, and people systems.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Eight types of waste in leadership systems</li>
+                        <li>Standard work for leaders and managers</li>
+                        <li>Continuous improvement mindsets (Kaizen)</li>
+                    </ul>
                 </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Hoshin Kanri (Strategy Deployment)</h3>
-                    <p>Align organizational strategy with execution through systematic strategy deployment. Ensure strategic goals cascade effectively throughout the organization with clear accountability.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Strategic planning and goal alignment</li>
-                            <li>X-Matrix development and deployment</li>
-                            <li>Catchball process for collaborative planning</li>
-                            <li>Progress tracking and adjustment mechanisms</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 2-day workshop + quarterly reviews</div>
-                </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Gemba Walk Training</h3>
-                    <p>Develop the habit of going to the "real place" where work happens to understand problems firsthand. Learn to observe, ask questions, and show respect while identifying improvement opportunities.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Effective Gemba walk methodology</li>
-                            <li>Observation techniques without judgment</li>
-                            <li>Asking powerful questions that reveal root causes</li>
-                            <li>Building improvement culture through presence</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: Half-day workshop + field practice</div>
-                </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Leader Standard Work Development</h3>
-                    <p>Create repeatable leadership routines and standard work that ensures consistent execution of leadership responsibilities. From daily huddles to monthly reviews, systematize leadership excellence.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Daily management systems for leaders</li>
-                            <li>Visual management and performance boards</li>
-                            <li>Routine meeting structures and rhythms</li>
-                            <li>Time allocation for strategic vs. operational work</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 1-day workshop + implementation coaching</div>
-                </div>
+                <div class="program-duration">Duration: 3-day workshop</div>
             </div>
 
-            <div class="service-cta card-reveal">
-                <a href="contact.html#booking" class="btn btn-primary">Implement Lean Leadership</a>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contact.html" class="btn btn-primary">Implement Lean Leadership</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Radical Transparency -->
-<section class="service-detail service-detail-alt" id="radical-transparency">
-    <div class="container">
-        <div class="service-detail-header card-reveal">
-            <div class="service-detail-icon">🔍</div>
-            <h2>Radical Transparency Framework</h2>
-            <p class="service-detail-tagline">TransparentLeader™ - Where Truth Drives Performance</p>
-        </div>
-
-        <div class="service-detail-content">
-            <div class="service-intro card-reveal">
-                <p>Most organizations suffer from politics, hidden agendas, and communication breakdowns that drain productivity and trust. Our Radical Transparency programs, based on principles proven by organizations like Bridgewater Associates, help you build cultures where honest feedback, thoughtful disagreement, and idea meritocracy drive superior outcomes.</p>
+    <!-- Radical Transparency -->
+    <section class="service-detail service-detail-alt" id="radical-transparency">
+        <div class="container">
+            <div class="service-detail-header">
+                <div class="service-detail-icon">🔍</div>
+                <h2>Radical Transparency Framework</h2>
+                <p class="service-detail-tagline">TransparentLeader™ - Where Truth Drives Performance</p>
             </div>
 
-            <div class="service-programs">
-                <div class="program-card card-reveal">
-                    <h3>Radical Transparency Leadership Workshop</h3>
-                    <p>Foundational training in creating psychologically safe environments where truth-telling and authentic feedback become organizational strengths rather than liabilities.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Principles of Radical Transparency and Truth</li>
-                            <li>Creating psychological safety for honesty</li>
-                            <li>Distinguishing between brutal honesty and radical candor</li>
-                            <li>Leadership behaviors that model transparency</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 2-day intensive workshop</div>
+            <div class="program-card">
+                <h3>Radical Transparency Leadership Workshop</h3>
+                <p>Foundational training in creating psychologically safe environments where truth-telling and authentic feedback become organizational strengths.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Principles of Radical Transparency and Truth</li>
+                        <li>Creating psychological safety for honesty</li>
+                        <li>Leadership behaviors that model transparency</li>
+                    </ul>
                 </div>
+                <div class="program-duration">Duration: 2-day intensive workshop</div>
+            </div>
 
-                <div class="program-card card-reveal">
-                    <h3>Idea Meritocracy Development</h3>
-                    <p>Build decision-making systems where the best ideas win regardless of hierarchy. Learn to separate people from ideas and create environments where dissent is valued.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Believability-weighted decision making</li>
-                            <li>Systems for capturing and evaluating ideas</li>
-                            <li>Overcoming authority bias and groupthink</li>
-                            <li>Credible dissent and productive disagreement</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: Full-day workshop + implementation support</div>
+            <div class="program-card">
+                <h3>Feedback Culture Training</h3>
+                <p>Transform feedback from an annual performance review into a continuous improvement conversation. Learn to give, receive, and act on feedback in real-time.</p>
+                <div class="program-outcomes">
+                    <strong>Outcomes:</strong>
+                    <ul>
+                        <li>Real-time feedback mechanisms</li>
+                        <li>Receiving feedback without defensiveness</li>
+                        <li>Creating feedback loops that accelerate learning</li>
+                    </ul>
                 </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Feedback Culture Training</h3>
-                    <p>Transform feedback from an annual performance review into a continuous improvement conversation. Learn to give, receive, and act on feedback in real-time.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Real-time feedback mechanisms</li>
-                            <li>Separating person from performance</li>
-                            <li>Receiving feedback without defensiveness</li>
-                            <li>Creating feedback loops that accelerate learning</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: Half-day workshop + practice sessions</div>
-                </div>
-
-                <div class="program-card card-reveal">
-                    <h3>Thoughtful Disagreement Facilitation</h3>
-                    <p>Master the art of productive conflict where disagreement strengthens decisions rather than damaging relationships. Facilitate meetings where diverse perspectives lead to better outcomes.</p>
-                    <div class="program-outcomes">
-                        <strong>Outcomes:</strong>
-                        <ul>
-                            <li>Structured debate and decision-making processes</li>
-                            <li>Managing emotional responses during disagreement</li>
-                            <li>Achieving alignment after healthy conflict</li>
-                            <li>Documentation systems for transparent decisions</li>
-                        </ul>
-                    </div>
-                    <div class="program-duration">Duration: 1-day workshop</div>
-                </div>
+                <div class="program-duration">Duration: Half-day workshop + practice sessions</div>
             </div>
 
-            <div class="service-cta card-reveal">
-                <a href="contact.html#booking" class="btn btn-primary">Build Transparent Culture</a>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="contact.html" class="btn btn-primary">Build Transparent Culture</a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Additional Services -->
-<section class="additional-services">
-    <div class="container">
-        <div class="section-header text-center card-reveal">
-            <h2>Additional Consulting Services</h2>
-            <p>Customized solutions for your unique organizational challenges</p>
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Transform Your Organization's Leadership Culture</h2>
+        <p>Let's discuss which programs align with your goals and create a customized transformation roadmap.</p>
+        <div>
+            <a href="contact.html" class="btn btn-primary">Schedule Free Consultation</a>
         </div>
+    </section>
 
-        <div class="additional-grid">
-            <div class="additional-card card-reveal">
-                <h3>Executive Coaching</h3>
-                <p>One-on-one coaching for C-suite executives and senior leaders navigating complex organizational challenges and personal leadership development.</p>
-                <a href="contact.html#one-on-one" class="additional-link">Learn More →</a>
-            </div>
-
-            <div class="additional-card card-reveal">
-                <h3>Organizational Culture Assessment</h3>
-                <p>Comprehensive diagnosis of your current culture using validated assessment tools, employee interviews, and observational research.</p>
-                <a href="contact.html#booking" class="additional-link">Request Assessment →</a>
-            </div>
-
-            <div class="additional-card card-reveal">
-                <h3>Leadership Pipeline Development</h3>
-                <p>Build sustainable systems for identifying, developing, and promoting leaders throughout your organization.</p>
-                <a href="contact.html#booking" class="additional-link">Discuss Program →</a>
-            </div>
-
-            <div class="additional-card card-reveal">
-                <h3>Corporate Retreats & Offsites</h3>
-                <p>Facilitated leadership retreats that combine strategic planning, team building, and skill development in immersive environments.</p>
-                <a href="contact.html#corporate" class="additional-link">Plan Retreat →</a>
-            </div>
-
-            <div class="additional-card card-reveal">
-                <h3>Team Dynamics Workshops</h3>
-                <p>Interactive sessions focused on improving team collaboration, communication, and performance through experiential learning.</p>
-                <a href="contact.html#booking" class="additional-link">Book Workshop →</a>
-            </div>
-
-            <div class="additional-card card-reveal">
-                <h3>Custom Program Design</h3>
-                <p>Tailored leadership development programs designed specifically for your organization's unique context, challenges, and goals.</p>
-                <a href="contact.html#contact-form" class="additional-link">Start Discussion →</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content text-center card-reveal">
-            <h2>Transform Your Organization's Leadership Culture</h2>
-            <p>Let's discuss which programs align with your goals and create a customized transformation roadmap.</p>
-            <div class="cta-buttons">
-                <a href="contact.html#booking" class="btn btn-primary btn-lg">Schedule Free Consultation</a>
-                <a href="about.html" class="btn btn-outline btn-lg">Learn Our Story</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-brand">
-                    <span class="brand-vision">Vision</span><span class="brand-sphere">Sphere</span>
-                </div>
-                <p class="footer-tagline">Think Deeper. Rise Higher. Lead the Future.</p>
-                <p class="footer-description">The North Star of Leadership - Bridging technical mastery with leadership excellence.</p>
+                <div class="footer-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Think Deeper. Rise Higher. Lead the Future.</p>
             </div>
-
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
@@ -500,7 +363,6 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul class="footer-links">
@@ -510,26 +372,18 @@
                     <li><a href="services.html#radical-transparency">Radical Transparency</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <ul class="footer-contact">
-                    <li><a href="contact.html#booking">Book Consultation</a></li>
-                    <li><a href="contact.html#corporate">Corporate Events</a></li>
-                    <li><a href="contact.html#contact-form">Contact Form</a></li>
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Book Consultation</a></li>
+                    <li><a href="mailto:info@visionsphere.com">info@visionsphere.com</a></li>
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2025 VisionSphere. All rights reserved.</p>
-            <p class="footer-philosophy">Leadership is a <strong>behavior</strong>, not a title.</p>
+            <p>Leadership is a <strong>behavior</strong>, not a title.</p>
         </div>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-```
-
+    </footer>
 </body>
 </html>
