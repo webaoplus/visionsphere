@@ -11,612 +11,271 @@
     
     <style>
         /* Critical CSS - Inline for guaranteed loading */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #2563EB;
-            --primary-dark: #1E40AF;
-            --primary-light: #3B82F6;
-            --gray: #6B7280;
-            --accent: #0D9488;
-            --bg-light: #F3F4F6;
-            --text-dark: #111827;
-            --text-gray: #4B5563;
+            --primary: #2563EB; --primary-dark: #1E40AF; --primary-light: #3B82F6;
+            --gray: #6B7280; --accent: #0D9488; --bg-light: #F3F4F6;
+            --text-dark: #111827; --text-gray: #4B5563;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
 
         /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 800;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .brand-vision {
-            color: var(--primary);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-family: 'Montserrat', sans-serif;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 0.625rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(37, 99, 235, 0.2);
-        }
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 1000; padding: 1rem 0; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+        .brand-vision { color: var(--primary); }
+        .nav-menu { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-link { color: var(--text-dark); text-decoration: none; font-weight: 500;
+            font-family: 'Montserrat', sans-serif; transition: color 0.3s; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; padding: 0.625rem 1.5rem; border-radius: 0.5rem; text-decoration: none;
+            font-weight: 600; font-family: 'Montserrat', sans-serif; transition: transform 0.3s, box-shadow 0.3s; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.2); }
 
         /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center;
             background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
-            position: relative;
-            padding: 8rem 2rem 4rem;
-            margin-top: 60px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: relative; padding: 8rem 2rem 4rem; margin-top: 60px; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .hero-trust {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .trust-item {
-            text-align: center;
-        }
-
-        .trust-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1;
-        }
-
-        .trust-label {
-            font-size: 0.875rem;
-            color: var(--text-gray);
-            margin-top: 0.5rem;
-        }
+            pointer-events: none; }
+        .hero-container { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+        .hero-badge { display: inline-block; padding: 0.5rem 1.5rem;
+            background: rgba(37, 99, 235, 0.1); color: var(--primary); border-radius: 50px;
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.875rem; margin-bottom: 2rem; }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem; line-height: 1.1; }
+        .hero-gradient { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-gray); margin-bottom: 2.5rem;
+            line-height: 1.7; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+        .btn { display: inline-block; padding: 1rem 2rem; font-family: 'Montserrat', sans-serif;
+            font-size: 1rem; font-weight: 600; border-radius: 0.5rem; text-decoration: none;
+            transition: all 0.3s; border: 2px solid transparent; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3); }
+        .btn-secondary { background: transparent; color: var(--primary); border-color: var(--primary); }
+        .btn-secondary:hover { background: var(--primary); color: white; }
+        .hero-trust { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
+            padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1); }
+        .trust-item { text-align: center; }
+        .trust-number { font-family: 'Montserrat', sans-serif; font-size: 2.5rem;
+            font-weight: 800; color: var(--primary); line-height: 1; }
+        .trust-label { font-size: 0.875rem; color: var(--text-gray); margin-top: 0.5rem; }
 
         /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-label { display: inline-block; font-size: 0.875rem; font-weight: 600;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.125rem; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
 
         /* Vision Mission Section */
-        .vision-mission {
-            background: var(--bg-light);
-        }
+        .vision-mission { background: var(--bg-light); }
+        .section-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .vision-card, .mission-card { background: white; padding: 2.5rem; border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+        .vision-card:hover, .mission-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .vision-card h3, .mission-card h3 { margin-bottom: 1rem; color: var(--text-dark); }
+        .vision-card p, .mission-card p { color: var(--text-gray); line-height: 1.7; }
 
-        .section-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .vision-card, .mission-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .vision-card:hover, .mission-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .vision-card h3, .mission-card h3 {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .vision-card p, .mission-card p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+        /* Services Grid - FIXED TO ALWAYS BE 4 COLUMNS ON DESKTOP */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
+        .service-card { background: white; padding: 2rem; border-radius: 1rem; border: 2px solid #E5E7EB;
+            transition: all 0.3s; cursor: pointer; height: 100%; }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .service-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .service-card h3 { margin-bottom: 0.5rem; color: var(--text-dark); font-size: 1.125rem; }
+        .service-card p { color: var(--text-gray); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.6; }
+        .service-link { color: var(--primary); font-weight: 600; text-decoration: none;
+            display: inline-block; transition: transform 0.3s; font-size: 0.9375rem; }
+        .service-link:hover { transform: translateX(5px); }
 
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 2px solid #E5E7EB;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .service-card p {
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-        }
-
-        .service-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.3s;
-        }
-
-        .service-link:hover {
-            transform: translateX(5px);
-        }
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%;
+            height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px); animation: fadeIn 0.3s; }
+        .modal.active { display: flex; align-items: center; justify-content: center; }
+        .modal-content { background-color: white; margin: 2rem; padding: 0; border-radius: 1rem;
+            max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto;
+            animation: slideUp 0.3s; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .modal-header { padding: 2rem; border-bottom: 1px solid #E5E7EB;
+            display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h2 { margin: 0; color: var(--text-dark); }
+        .modal-close { background: none; border: none; font-size: 2rem; cursor: pointer;
+            color: var(--text-gray); transition: color 0.3s; line-height: 1; padding: 0; width: 40px; height: 40px; }
+        .modal-close:hover { color: var(--text-dark); }
+        .modal-body { padding: 2rem; }
+        .modal-body h3 { margin-top: 1.5rem; margin-bottom: 1rem; color: var(--text-dark); }
+        .modal-body h3:first-child { margin-top: 0; }
+        .modal-body ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .modal-body li { margin-bottom: 0.5rem; color: var(--text-gray); }
+        .modal-footer { padding: 1.5rem 2rem; border-top: 1px solid #E5E7EB;
+            display: flex; justify-content: center; gap: 1rem; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; } }
 
         /* Why VisionSphere */
-        .why-visionsphere {
-            background: white;
-        }
+        .why-visionsphere { background: white; }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .stat-card { background: var(--bg-light); padding: 1.5rem; border-radius: 0.75rem;
+            border-left: 4px solid var(--primary); margin-bottom: 1.5rem; }
+        .stat-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .stat-card h4 { margin-bottom: 0.5rem; }
+        .stat-card p { color: var(--text-gray); margin: 0; }
 
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            align-items: center;
+        /* Goals Section - FIXED TO 4 COLUMNS */
+        .strategic-goals { background: var(--bg-light); }
+        .goals-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
         }
-
-        .stat-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border-left: 4px solid var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            color: var(--text-gray);
-            margin: 0;
-        }
-
-        /* Goals Section */
-        .strategic-goals {
-            background: var(--bg-light);
-        }
-
-        .goals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .goal-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .goal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .goal-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .goal-card h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .goal-card p {
-            color: var(--text-gray);
-            margin: 0;
-        }
+        .goal-card { background: white; padding: 2rem; border-radius: 0.75rem; position: relative;
+            transition: transform 0.3s, box-shadow 0.3s; height: 100%; }
+        .goal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .goal-number { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800;
+            color: var(--primary); opacity: 0.2; position: absolute; top: 1rem; right: 1rem; }
+        .goal-card h3 { margin-bottom: 0.5rem; font-size: 1.125rem; }
+        .goal-card p { color: var(--text-gray); margin: 0; font-size: 0.9375rem; line-height: 1.6; }
 
         /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-section .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .cta-section .btn-secondary {
-            border-color: white;
-            color: white;
-        }
-
-        .cta-section .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white; text-align: center; }
+        .cta-section h2 { color: white; margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 2rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-section .btn-primary { background: white; color: var(--primary); }
+        .cta-section .btn-secondary { border-color: white; color: white; }
+        .cta-section .btn-secondary:hover { background: white; color: var(--primary); }
 
         /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
+        .footer { background: var(--text-dark); color: white; padding: 4rem 2rem 2rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 2rem; margin-bottom: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+        .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
+        .footer-tagline { font-family: 'Montserrat', sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
+        .footer-description { color: rgba(255, 255, 255, 0.7); font-size: 0.875rem; }
+        .footer-col h4 { margin-bottom: 1rem; font-size: 1.125rem; }
+        .footer-links, .footer-contact { list-style: none; }
+        .footer-links li, .footer-contact li { margin-bottom: 0.5rem; }
+        .footer-links a, .footer-contact a { color: rgba(255, 255, 255, 0.7); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover, .footer-contact a:hover { color: white; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;
+            text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; margin-bottom: 0.5rem; }
+        .footer-philosophy { color: rgba(255, 255, 255, 0.8); font-style: italic; }
+
+        /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
+        
+        /* Large Desktop (1200px+) - Default styles above */
+        
+        /* Desktop / Laptop (992px - 1199px) */
+        @media (max-width: 1199px) {
+            .container { padding: 0 1.5rem; }
+            .services-grid { gap: 1.25rem; }
+            .service-card { padding: 1.5rem; }
+            .goals-grid { gap: 1.25rem; }
+            .goal-card { padding: 1.5rem; }
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-tagline {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-description {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.875rem;
-        }
-
-        .footer-col h4 {
-            margin-bottom: 1rem;
-            font-size: 1.125rem;
-        }
-
-        .footer-links, .footer-contact {
-            list-style: none;
-        }
-
-        .footer-links li, .footer-contact li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a, .footer-contact a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover, .footer-contact a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-philosophy {
-            color: rgba(255, 255, 255, 0.8);
-            font-style: italic;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+        /* Tablet Landscape (768px - 991px) */
+        @media (max-width: 991px) {
+            /* Services: 2 columns x 2 rows */
+            .services-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
-
-            .hero {
-                padding: 6rem 1.5rem 3rem;
+            
+            /* Goals: 2 columns x 2 rows */
+            .goals-grid { 
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
+            
+            .why-grid { grid-template-columns: 1fr; }
+            .section-grid { grid-template-columns: 1fr; }
+            
+            /* Footer: 2 columns x 2 rows */
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
 
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .hero-trust {
-                gap: 2rem;
-            }
-
-            section {
-                padding: 3rem 1.5rem;
-            }
-
-            .why-grid {
+        /* Tablet Portrait (600px - 767px) */
+        @media (max-width: 767px) {
+            .nav-menu { display: none; }
+            .hero { padding: 6rem 1.5rem 3rem; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .hero-trust { gap: 2rem; }
+            section { padding: 3rem 1.5rem; }
+            
+            /* Services: 1 column on tablet portrait */
+            .services-grid { 
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
+            
+            /* Goals: 1 column on tablet portrait */
+            .goals-grid { 
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .modal-content { margin: 1rem; }
+            .modal-header { padding: 1.5rem; }
+            .modal-body { padding: 1.5rem; }
+            .modal-footer { padding: 1rem 1.5rem; }
+        }
+
+        /* Mobile (up to 599px) */
+        @media (max-width: 599px) {
+            .hero { padding: 5rem 1rem 2rem; }
+            section { padding: 2.5rem 1rem; }
+            .btn { padding: 0.875rem 1.5rem; font-size: 0.9375rem; }
+            .service-card { padding: 1.5rem; }
+            .goal-card { padding: 1.5rem; }
+            .stat-card { padding: 1.25rem; }
+            
+            /* Footer: 1 column on mobile */
+            .footer-grid { grid-template-columns: 1fr; }
+            
+            .modal-content { margin: 0.5rem; max-height: 95vh; }
+            .modal-header { padding: 1.25rem; }
+            .modal-header h2 { font-size: 1.5rem; }
+            .modal-body { padding: 1.25rem; }
+            .modal-close { font-size: 1.5rem; width: 32px; height: 32px; }
         }
 
         /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out;
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeInUp 0.8s ease-out; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-vision">Vision</span><span>Sphere</span>
-            </div>
+            <div class="nav-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
@@ -687,32 +346,32 @@
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('it-leadership')">
                     <div class="service-icon">💼</div>
                     <h3>IT Leadership Development</h3>
-                    <p>Technical-to-executive transition coaching, agile team development, and DevOps culture transformation. For engineers and technical managers ready to lead with impact.</p>
-                    <a href="services.html#it-leadership" class="service-link">Explore Program →</a>
+                    <p>Technical-to-executive transition coaching, agile team development, and DevOps culture transformation.</p>
+                    <span class="service-link">Learn More →</span>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('eq-training')">
                     <div class="service-icon">🧠</div>
                     <h3>Emotional Intelligence Training</h3>
-                    <p>EQ assessment administration, leadership workshops, and specialized "EQ for Engineering Leaders" programs that develop people-first technical leadership.</p>
-                    <a href="services.html#eq-training" class="service-link">Explore Program →</a>
+                    <p>EQ assessment administration, leadership workshops, and "EQ for Engineering Leaders" programs.</p>
+                    <span class="service-link">Learn More →</span>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('lean-leadership')">
                     <div class="service-icon">⚡</div>
                     <h3>Lean Leadership Systems</h3>
-                    <p>Lean fundamentals, Hoshin Kanri strategy deployment, Gemba walks, and leader standard work development for operational excellence.</p>
-                    <a href="services.html#lean-leadership" class="service-link">Explore Program →</a>
+                    <p>Lean fundamentals, Hoshin Kanri strategy deployment, Gemba walks, and leader standard work.</p>
+                    <span class="service-link">Learn More →</span>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="openModal('radical-transparency')">
                     <div class="service-icon">🔍</div>
                     <h3>Radical Transparency Framework</h3>
-                    <p>Build idea meritocracies, feedback-rich cultures, and thoughtful disagreement practices. Transform how your teams collaborate and innovate.</p>
-                    <a href="services.html#radical-transparency" class="service-link">Explore Program →</a>
+                    <p>Build idea meritocracies, feedback-rich cultures, and thoughtful disagreement practices.</p>
+                    <span class="service-link">Learn More →</span>
                 </div>
             </div>
 
@@ -721,6 +380,175 @@
             </div>
         </div>
     </section>
+
+    <!-- Service Modals -->
+    <div id="modal-it-leadership" class="modal" onclick="closeModalOnOutside(event, 'it-leadership')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>💼 IT Leadership Development</h2>
+                <button class="modal-close" onclick="closeModal('it-leadership')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Most technical professionals hit a leadership ceiling not because they lack skills, but because they haven't learned to translate technical mastery into human leadership.</p>
+                
+                <h3>Technical-to-Executive Transition Coaching</h3>
+                <p>Individualized coaching for engineers and technical managers developing strategic leadership capabilities.</p>
+                <ul>
+                    <li>Strategic thinking frameworks for technical leaders</li>
+                    <li>Stakeholder management and executive presence</li>
+                    <li>Team delegation and leadership communication</li>
+                    <li>Balancing technical depth with leadership breadth</li>
+                </ul>
+                <p><strong>Duration:</strong> 12-week program with bi-weekly coaching sessions</p>
+
+                <h3>Agile Team Development</h3>
+                <p>Build high-performing agile teams that deliver results through effective collaboration and continuous improvement.</p>
+                <ul>
+                    <li>Effective sprint planning and retrospectives</li>
+                    <li>Team collaboration and conflict resolution</li>
+                    <li>Agile mindset and adaptive leadership</li>
+                </ul>
+                <p><strong>Duration:</strong> 2-day workshop + 8-week implementation support</p>
+
+                <h3>DevOps Culture Transformation</h3>
+                <p>Leverage ITIL 4 and CSM expertise to build collaborative DevOps cultures that break down silos.</p>
+                <ul>
+                    <li>Breaking down development and operations silos</li>
+                    <li>Continuous integration and deployment mindsets</li>
+                    <li>Blameless post-mortems and learning cultures</li>
+                </ul>
+                <p><strong>Duration:</strong> 90-day transformation program</p>
+            </div>
+            <div class="modal-footer">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="services.html" class="btn btn-secondary">View Full Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-eq-training" class="modal" onclick="closeModalOnOutside(event, 'eq-training')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>🧠 Emotional Intelligence Training</h2>
+                <button class="modal-close" onclick="closeModal('eq-training')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>The most successful technical leaders aren't just the smartest—they're the most emotionally intelligent.</p>
+                
+                <h3>EQ Assessment & Development</h3>
+                <p>Comprehensive emotional intelligence assessment using validated EQ frameworks.</p>
+                <ul>
+                    <li>Complete EQ profile with strengths and development areas</li>
+                    <li>Self-awareness and emotional regulation strategies</li>
+                    <li>Social awareness and empathy development</li>
+                    <li>Relationship management and influence skills</li>
+                </ul>
+                <p><strong>Duration:</strong> Assessment + 6 coaching sessions over 3 months</p>
+
+                <h3>EQ for Engineering Leaders</h3>
+                <p>Specialized program applying emotional intelligence specifically to technical leadership contexts.</p>
+                <ul>
+                    <li>Reading team dynamics in technical environments</li>
+                    <li>Delivering technical feedback with empathy</li>
+                    <li>Managing stress and burnout in high-pressure projects</li>
+                    <li>Building psychological safety in engineering teams</li>
+                </ul>
+                <p><strong>Duration:</strong> Full-day workshop + 4 follow-up sessions</p>
+            </div>
+            <div class="modal-footer">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="services.html" class="btn btn-secondary">View Full Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-lean-leadership" class="modal" onclick="closeModalOnOutside(event, 'lean-leadership')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>⚡ Lean Leadership Systems</h2>
+                <button class="modal-close" onclick="closeModal('lean-leadership')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Lean principles revolutionized manufacturing—now apply them to leadership development.</p>
+                
+                <h3>Lean Leadership Fundamentals</h3>
+                <p>Master the core concepts of Lean thinking applied to leadership and organizational development.</p>
+                <ul>
+                    <li>Eight types of waste in leadership systems</li>
+                    <li>Value stream mapping for organizational processes</li>
+                    <li>Standard work for leaders and managers</li>
+                    <li>Continuous improvement mindsets (Kaizen)</li>
+                </ul>
+                <p><strong>Duration:</strong> 3-day workshop</p>
+
+                <h3>Hoshin Kanri (Strategy Deployment)</h3>
+                <p>Align organizational strategy with execution through systematic strategy deployment.</p>
+                <ul>
+                    <li>Strategic planning and goal alignment</li>
+                    <li>X-Matrix development and deployment</li>
+                    <li>Catchball process for collaborative planning</li>
+                </ul>
+                <p><strong>Duration:</strong> 2-day workshop + quarterly reviews</p>
+
+                <h3>Gemba Walk Training</h3>
+                <p>Develop the habit of going to the "real place" where work happens.</p>
+                <ul>
+                    <li>Effective Gemba walk methodology</li>
+                    <li>Observation techniques without judgment</li>
+                    <li>Building improvement culture through presence</li>
+                </ul>
+                <p><strong>Duration:</strong> Half-day workshop + field practice</p>
+            </div>
+            <div class="modal-footer">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="services.html" class="btn btn-secondary">View Full Details</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-radical-transparency" class="modal" onclick="closeModalOnOutside(event, 'radical-transparency')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>🔍 Radical Transparency Framework</h2>
+                <button class="modal-close" onclick="closeModal('radical-transparency')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Most organizations suffer from politics, hidden agendas, and communication breakdowns. Our Radical Transparency programs help you build cultures where truth drives performance.</p>
+                
+                <h3>TransparentLeader™ Workshop</h3>
+                <p>Foundational training in creating psychologically safe environments where honest feedback becomes an organizational strength.</p>
+                <ul>
+                    <li>Principles of Radical Transparency and Truth</li>
+                    <li>Creating psychological safety for honesty</li>
+                    <li>Distinguishing between brutal honesty and radical candor</li>
+                    <li>Leadership behaviors that model transparency</li>
+                </ul>
+                <p><strong>Duration:</strong> 2-day intensive workshop</p>
+
+                <h3>Idea Meritocracy Development</h3>
+                <p>Build decision-making systems where the best ideas win regardless of hierarchy.</p>
+                <ul>
+                    <li>Believability-weighted decision making</li>
+                    <li>Systems for capturing and evaluating ideas</li>
+                    <li>Overcoming authority bias and groupthink</li>
+                </ul>
+                <p><strong>Duration:</strong> Full-day workshop + implementation support</p>
+
+                <h3>Feedback Culture Training</h3>
+                <p>Transform feedback from an annual performance review into a continuous improvement conversation.</p>
+                <ul>
+                    <li>Real-time feedback mechanisms</li>
+                    <li>Receiving feedback without defensiveness</li>
+                    <li>Creating feedback loops that accelerate learning</li>
+                </ul>
+                <p><strong>Duration:</strong> Half-day workshop + practice sessions</p>
+            </div>
+            <div class="modal-footer">
+                <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
+                <a href="services.html" class="btn btn-secondary">View Full Details</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Why VisionSphere Section -->
     <section class="why-visionsphere">
@@ -806,9 +634,7 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-brand">
-                    <span class="brand-vision">Vision</span><span>Sphere</span>
-                </div>
+                <div class="footer-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
                 <p class="footer-tagline">Think Deeper. Rise Higher. Lead the Future.</p>
                 <p class="footer-description">The North Star of Leadership - Bridging technical mastery with leadership excellence.</p>
             </div>
@@ -826,10 +652,10 @@
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul class="footer-links">
-                    <li><a href="services.html#it-leadership">IT Leadership</a></li>
-                    <li><a href="services.html#eq-training">Emotional Intelligence</a></li>
-                    <li><a href="services.html#lean-leadership">Lean Leadership</a></li>
-                    <li><a href="services.html#radical-transparency">Radical Transparency</a></li>
+                    <li><a href="services.html">IT Leadership</a></li>
+                    <li><a href="services.html">Emotional Intelligence</a></li>
+                    <li><a href="services.html">Lean Leadership</a></li>
+                    <li><a href="services.html">Radical Transparency</a></li>
                 </ul>
             </div>
 
@@ -848,5 +674,41 @@
             <p class="footer-philosophy">Leadership is a <strong>behavior</strong>, not a title.</p>
         </div>
     </footer>
+
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById('modal-' + modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById('modal-' + modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeModalOnOutside(event, modalId) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(modalId);
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

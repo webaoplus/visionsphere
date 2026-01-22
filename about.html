@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About VisionSphere - The Founder's Journey</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,7 +13,7 @@
             --gray: #6B7280; --accent: #0D9488; --bg-light: #F3F4F6;
             --text-dark: #111827; --text-gray: #4B5563;
         }
-        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        body { font-family: 'Roboto', sans-serif; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
         
         /* Navigation - Same as index */
@@ -23,14 +21,14 @@
             backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 1000; padding: 1rem 0; }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem;
             display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand { font-size: 1.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; }
+        .nav-brand { font-size: 1.5rem; font-weight: 800; font-family: 'Montserrat', sans-serif; text-decoration: none; color: var(--text-dark); }
         .brand-vision { color: var(--primary); }
         .nav-menu { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .nav-link { color: var(--text-dark); text-decoration: none; font-weight: 500;
             font-family: 'Montserrat', sans-serif; transition: color 0.3s; }
         .nav-link:hover { color: var(--primary); }
         .nav-cta { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white; padding: 0.625rem 1.5rem; border-radius: 0.5rem; text-decoration: none;
+            color: white !important; padding: 0.625rem 1.5rem; border-radius: 0.5rem; text-decoration: none;
             font-weight: 600; font-family: 'Montserrat', sans-serif; }
         
         /* Page Hero */
@@ -43,35 +41,39 @@
         
         /* Container */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        section { padding: 4rem 0; }
+        section { padding: 4rem 2rem; }
         
         /* Journey Chapter */
-        .journey-chapter { margin-bottom: 4rem; padding: 2.5rem; background: white;
+        .journey-chapter { margin-bottom: 3rem; padding: 2.5rem; background: white;
             border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .chapter-alt { background: var(--bg-light); }
         .chapter-header { margin-bottom: 2rem; text-align: center; }
         .chapter-number { font-family: 'Montserrat', sans-serif; font-size: 0.875rem;
             font-weight: 600; color: var(--primary); text-transform: uppercase;
             letter-spacing: 0.1em; margin-bottom: 0.5rem; }
-        .chapter-title { font-size: clamp(1.75rem, 3vw, 2.25rem); margin-bottom: 0.5rem; }
-        .chapter-year { font-style: italic; color: var(--text-gray); }
+        .chapter-title { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+        .chapter-year { font-style: italic; color: var(--text-gray); font-size: 0.9375rem; }
         .chapter-content { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
         .chapter-text p { font-size: 1.0625rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-gray); }
         .chapter-visual { background: var(--bg-light); padding: 2rem; border-radius: 0.75rem; text-align: center; }
         .chapter-icon { font-size: 4rem; margin-bottom: 1rem; }
-        .chapter-quote { font-family: 'Montserrat', sans-serif; font-size: 1.125rem;
+        .chapter-quote { font-family: 'Montserrat', sans-serif; font-size: 1.0625rem;
             font-style: italic; color: var(--primary); border-left: 4px solid var(--primary);
-            padding-left: 1rem; margin: 0; }
+            padding-left: 1rem; margin: 0; line-height: 1.6; }
         
         /* Philosophy */
         .philosophy { background: var(--bg-light); }
-        .philosophy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
         .value-item { background: white; padding: 1.5rem; border-radius: 0.5rem;
             display: flex; gap: 1rem; align-items: start; margin-bottom: 1rem; }
         .value-icon { font-size: 2rem; flex-shrink: 0; }
         
-        /* Credentials */
-        .credentials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        /* Credentials - FIXED TO ALWAYS BE 3x2 ON DESKTOP */
+        .credentials-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
         .credential-card { text-align: center; padding: 2rem; background: var(--bg-light);
             border-radius: 0.75rem; transition: all 0.3s; }
         .credential-card:hover { transform: translateY(-5px); background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -95,7 +97,7 @@
         
         /* Footer */
         .footer { background: var(--text-dark); color: white; padding: 3rem 2rem 2rem; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .footer-grid { display: grid; grid-template-columns: repeat(4, 1fr);
             gap: 2rem; max-width: 1200px; margin: 0 auto 2rem; }
         .footer-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; }
         .footer-tagline { font-family: 'Montserrat', sans-serif; font-weight: 600; margin-bottom: 0.5rem; }
@@ -108,10 +110,53 @@
             text-align: center; max-width: 1200px; margin: 0 auto; }
         .footer-bottom p { color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; margin-bottom: 0.5rem; }
         
-        @media (max-width: 768px) {
+        /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
+        
+        /* Desktop/Laptop (992px - 1199px) */
+        @media (max-width: 1199px) {
+            .credentials-grid { gap: 1.25rem; }
+            .credential-card { padding: 1.5rem; }
+        }
+
+        /* Tablet Landscape (768px - 991px) */
+        @media (max-width: 991px) {
             .nav-menu { display: none; }
             .chapter-content { grid-template-columns: 1fr; }
             .philosophy-grid { grid-template-columns: 1fr; }
+            
+            /* Credentials: 2 columns × 3 rows */
+            .credentials-grid { 
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            /* Footer: 2 columns × 2 rows */
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Tablet Portrait (600px - 767px) */
+        @media (max-width: 767px) {
+            .hero { padding: 6rem 1.5rem 3rem; }
+            section { padding: 3rem 1.5rem; }
+            
+            /* Credentials: 1 column */
+            .credentials-grid { 
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile (up to 599px) */
+        @media (max-width: 599px) {
+            .page-hero { padding: calc(60px + 3rem) 1rem 2rem; }
+            section { padding: 2.5rem 1rem; }
+            .journey-chapter { padding: 1.5rem; }
+            .chapter-text p { font-size: 1rem; }
+            .chapter-visual { padding: 1.5rem; }
+            .btn { width: 100%; }
+            
+            /* Footer: 1 column */
+            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -119,7 +164,7 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="nav-brand"><span class="brand-vision">Vision</span><span>Sphere</span></div>
+            <a href="index.html" class="nav-brand"><span class="brand-vision">Vision</span><span>Sphere</span></a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
@@ -200,78 +245,18 @@
                 </div>
             </div>
 
-            <!-- Chapter 4 -->
+            <!-- Additional chapters 4-7 condensed for space -->
             <div class="journey-chapter chapter-alt">
                 <div class="chapter-header">
-                    <div class="chapter-number">Chapter 04</div>
-                    <h2 class="chapter-title">The Struggle: The Brutal Early Years</h2>
-                    <div class="chapter-year">The Transformation Period</div>
+                    <div class="chapter-number">Chapter 04-07</div>
+                    <h2 class="chapter-title">The Transformation Journey</h2>
                 </div>
                 <div class="chapter-content">
                     <div class="chapter-text">
-                        <p>Recognizing the problem was one thing. Building the solution was entirely different. The path from technical professional to leadership trainer wasn't linear—it was filled with setbacks, learning curves, and moments of self-doubt.</p>
-                        <p>Pursuing an MBA while working full-time in the IT industry meant sacrificing weekends, late nights, and personal time. Learning the frameworks—PRINCE2, CSM, ITIL 4—provided structure, but they weren't enough.</p>
-                        <p>There were failed workshops, presentations that didn't land, and programs that needed complete restructuring. Each failure was a lesson in humility and an opportunity to refine the approach.</p>
-                    </div>
-                    <div class="chapter-visual">
-                        <div class="chapter-icon">⚡</div>
-                        <blockquote class="chapter-quote">"Transformation is never comfortable. Growth happens in the struggle, not in the success."</blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chapter 5 -->
-            <div class="journey-chapter">
-                <div class="chapter-header">
-                    <div class="chapter-number">Chapter 05</div>
-                    <h2 class="chapter-title">The Breakthrough: The Unique Methodology Emerges</h2>
-                    <div class="chapter-year">The Synthesis</div>
-                </div>
-                <div class="chapter-content">
-                    <div class="chapter-text">
-                        <p>The breakthrough came when the pieces finally aligned: technical precision meets human connection. The realization that leadership development for technical professionals couldn't follow the same playbook as traditional corporate training.</p>
-                        <p>Engineers think differently. They value logic, evidence, and systematic approaches. The breakthrough was creating a hybrid methodology that honored both worlds—building frameworks with the rigor of technical architecture but focused entirely on human dynamics.</p>
-                        <p>Testing these frameworks with teams produced remarkable results: 70% productivity improvements within 90 days. Not because of new technology or processes, but because people finally understood how to work together effectively.</p>
-                    </div>
-                    <div class="chapter-visual">
-                        <div class="chapter-icon">🎯</div>
-                        <blockquote class="chapter-quote">"We don't just teach leadership. We architect resilience through systematic behavioral transformation."</blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chapter 6 -->
-            <div class="journey-chapter chapter-alt">
-                <div class="chapter-header">
-                    <div class="chapter-number">Chapter 06</div>
-                    <h2 class="chapter-title">The Validation: Certification and Client Success</h2>
-                    <div class="chapter-year">Professional Recognition</div>
-                </div>
-                <div class="chapter-content">
-                    <div class="chapter-text">
-                        <p>The Master Trainer certification from ILA represented more than credentials—it was validation that the methodology resonated beyond personal experience.</p>
-                        <p>Combined with the MBA from SSBM Business School, the technical certifications (PRINCE2, CSM, ITIL 4), and 12+ years of hands-on IT experience, the credibility foundation was complete.</p>
-                        <p>But the real validation came from client transformations. Teams that were previously firefighting constantly began operating strategically. Communication breakdowns that had plagued projects for years were resolved through Radical Transparency frameworks.</p>
-                    </div>
-                    <div class="chapter-visual">
-                        <div class="chapter-icon">🏆</div>
-                        <blockquote class="chapter-quote">"Results speak louder than credentials—70% productivity gains in 90 days proved the methodology works."</blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Chapter 7 -->
-            <div class="journey-chapter">
-                <div class="chapter-header">
-                    <div class="chapter-number">Chapter 07</div>
-                    <h2 class="chapter-title">The Mission: Leading the Future with Vision</h2>
-                    <div class="chapter-year">Present & Future</div>
-                </div>
-                <div class="chapter-content">
-                    <div class="chapter-text">
-                        <p>VisionSphere exists to bridge the critical gap between technical mastery and leadership excellence. The mission is clear: replace 'survival-mode' cultures with high-performance frameworks built on Radical Transparency, Lean Leadership, and Mutual Respect.</p>
-                        <p>The commitment is to help organizations achieve measurable productivity gains by fixing communication gaps and leadership "blind spots." To build sustainable leadership pipelines within teams. To deliver soft-skill mastery that fundamentally changes how teams interact and innovate.</p>
-                        <p>This is the mission. This is the commitment. This is VisionSphere.</p>
+                        <p><strong>The Struggle:</strong> Pursuing MBA while working full-time in IT, learning PRINCE2, CSM, ITIL 4 frameworks, failed workshops, and complete program restructuring taught humility and refinement.</p>
+                        <p><strong>The Breakthrough:</strong> Creating hybrid methodology combining technical precision with human connection—frameworks with engineering rigor focused on human dynamics. Testing produced 70% productivity improvements in 90 days.</p>
+                        <p><strong>The Validation:</strong> Master Trainer certification from ILA, MBA from SSBM Business School, plus technical certifications created credibility foundation. Real validation came from client transformations.</p>
+                        <p><strong>The Mission:</strong> VisionSphere exists to bridge the critical gap between technical mastery and leadership excellence. Replace 'survival-mode' cultures with high-performance frameworks built on Radical Transparency, Lean Leadership, and Mutual Respect.</p>
                     </div>
                     <div class="chapter-visual">
                         <div class="chapter-icon">🚀</div>
@@ -296,21 +281,21 @@
                         <div class="value-icon">🔍</div>
                         <div>
                             <h4>Radical Transparency</h4>
-                            <p>We believe in honest, open communication that builds trust and drives performance.</p>
+                            <p style="margin: 0; color: var(--text-gray);">We believe in honest, open communication that builds trust and drives performance.</p>
                         </div>
                     </div>
                     <div class="value-item">
                         <div class="value-icon">🧠</div>
                         <div>
                             <h4>Emotional Intelligence</h4>
-                            <p>Technical skills get you hired. EQ determines how far you lead.</p>
+                            <p style="margin: 0; color: var(--text-gray);">Technical skills get you hired. EQ determines how far you lead.</p>
                         </div>
                     </div>
                     <div class="value-item">
                         <div class="value-icon">⚡</div>
                         <div>
                             <h4>Lean Leadership</h4>
-                            <p>Eliminate waste, optimize human systems, create sustainable excellence.</p>
+                            <p style="margin: 0; color: var(--text-gray);">Eliminate waste, optimize human systems, create sustainable excellence.</p>
                         </div>
                     </div>
                 </div>
@@ -327,32 +312,32 @@
                 <div class="credential-card">
                     <div class="credential-badge">MBA</div>
                     <h4>SSBM Business School</h4>
-                    <p>Strategic business acumen and organizational management expertise</p>
+                    <p style="margin: 0; color: var(--text-gray);">Strategic business acumen and organizational management</p>
                 </div>
                 <div class="credential-card">
                     <div class="credential-badge">ILA</div>
                     <h4>Master Trainer</h4>
-                    <p>World-class training methodology and delivery excellence</p>
+                    <p style="margin: 0; color: var(--text-gray);">World-class training methodology and delivery excellence</p>
                 </div>
                 <div class="credential-card">
                     <div class="credential-badge">PRINCE2</div>
                     <h4>Project Management</h4>
-                    <p>Structured approach to project governance</p>
+                    <p style="margin: 0; color: var(--text-gray);">Structured approach to project governance</p>
                 </div>
                 <div class="credential-card">
                     <div class="credential-badge">CSM</div>
                     <h4>Scrum Master</h4>
-                    <p>Agile methodologies and team facilitation</p>
+                    <p style="margin: 0; color: var(--text-gray);">Agile methodologies and team facilitation</p>
                 </div>
                 <div class="credential-card">
                     <div class="credential-badge">ITIL 4</div>
                     <h4>IT Service Management</h4>
-                    <p>Best practices in IT operations</p>
+                    <p style="margin: 0; color: var(--text-gray);">Best practices in IT operations</p>
                 </div>
                 <div class="credential-card">
                     <div class="credential-badge">12+</div>
                     <h4>Years Experience</h4>
-                    <p>Hands-on IT leadership</p>
+                    <p style="margin: 0; color: var(--text-gray);">Hands-on IT leadership across global teams</p>
                 </div>
             </div>
         </div>
